@@ -1,0 +1,127 @@
+    0  r6 = r1                                                    live-in [1]
+    1  w9 = 26                                                    live-in [6]
+    2  r1 = -1343256674                                           live-in [6, 9]
+    3  w4 = 27                                                    live-in [1, 6, 9]
+    4  r8 = *(u32 *)(r6 +24)                                      live-in [1, 4, 6, 9]
+    5  r5 = *(u32 *)(r6 +20)                                      live-in [1, 4, 6, 9]
+    6  r0 = 0x3d1e05c7b073271c ll                                 live-in [1, 4, 6, 9]
+    8  r1 -= r1                                                   live-in [0, 1, 4, 6, 9]
+    9  r1 ^= 264583399                                            live-in [0, 1, 4, 6, 9]
+   10  *(u32 *)(r6 +56) = r0                                      live-in [0, 1, 4, 6, 9]
+   11  r8 = (s16)r1                                               live-in [0, 1, 4, 6, 9]
+   12  *(u8 *)(r10 -40) = r0                                      live-in [0, 1, 4, 6, 8, 9]
+   13  r7 = 0                                                     live-in [1, 4, 6, 8, 9]
+L1:
+   14  w9 = -w9                                                   live-in [1, 4, 6, 7, 8, 9]
+   15  r1 %= 22                                                   live-in [1, 4, 6, 7, 8, 9]
+   16  r5 = *(u32 *)(r6 +56)                                      live-in [1, 4, 6, 7, 8, 9]
+   17  if w1 JGT -11 goto L4                                      live-in [1, 4, 5, 6, 7, 8, 9]
+   18  r1 *= r5                                                   live-in [1, 4, 5, 6, 7, 9]
+   19  r8 = 35                                                    live-in [1, 4, 5, 6, 7, 9]
+   20  if r9 JSGT -107724427 goto L2                              live-in [1, 4, 5, 6, 7, 8, 9]
+   21  r9 = 0xeeba7ea859a84d12 ll                                 live-in [1, 4, 5, 6, 7, 8]
+   23  goto L3                                                    live-in [1, 4, 5, 6, 7, 8, 9]
+L2:
+   24  *(u32 *)(r6 +64) = r9                                      live-in [1, 4, 5, 6, 7, 8, 9]
+L3:
+L4:
+   25  r7 += 1                                                    live-in [1, 4, 5, 6, 7, 8, 9]
+   26  if r7 JLT 3 goto L1                                        live-in [1, 4, 5, 6, 7, 8, 9]
+   27  r0 = 0xd87cccdada4cec72 ll                                 live-in [4, 5, 6, 7, 8]
+   29  r5 &= -1139756874                                          live-in [4, 5, 6, 7, 8]
+   30  w9 = 2147483647                                            live-in [4, 5, 6, 7, 8]
+   31  *(u8 *)(r10 -31) = 27                                      live-in [4, 5, 6, 7, 8, 9]
+   32  w1 = 2147483647                                            live-in [4, 5, 6, 7, 8, 9]
+   33  r3 = 65535                                                 live-in [1, 4, 5, 6, 7, 8, 9]
+   34  if w9 JLT -14 goto L6                                      live-in [1, 3, 4, 5, 6, 7, 8, 9]
+   35  *(u64 *)(r10 -40) = r4                                     live-in [1, 3, 4, 5, 6, 7, 8, 9]
+   36  r9 = bswap64 r9                                            live-in [1, 3, 4, 5, 6, 7, 8, 9]
+   37  if w8 JSET 59 goto L5                                      live-in [1, 3, 4, 5, 6, 7, 8, 9]
+   38  r3 ^= 1171380907                                           live-in [1, 3, 4, 5, 6, 7, 8, 9]
+L5:
+   39  gotol L7                                                   live-in [1, 4, 5, 6, 7, 8, 9]
+L6:
+   40  r3 = 13083234                                              live-in [1, 4, 5, 6, 7, 8, 9]
+   41  w5 ^= -10                                                  live-in [1, 4, 5, 6, 7, 8, 9]
+   42  r5 &= r4                                                   live-in [1, 4, 5, 6, 7, 8, 9]
+L7:
+   43  if r1 JLE 1012951828 goto L11                              live-in [1, 4, 5, 6, 7, 8, 9]
+   44  r9 = bswap64 r9                                            live-in [4, 5, 6, 7, 8, 9]
+   45  if r7 JEQ 32 goto L9                                       live-in [4, 5, 6, 7, 8, 9]
+   46  w4 = -w4                                                   live-in [4, 5, 6, 7, 8]
+   47  r9 = 0                                                     live-in [5, 6, 7, 8]
+L8:
+   48  *(u64 *)(r10 -8) = r5                                      live-in [5, 6, 7, 8, 9]
+   49  r9 += 1                                                    live-in [5, 6, 7, 8, 9]
+   50  if r9 JLT 3 goto L8                                        live-in [5, 6, 7, 8, 9]
+   51  goto L10                                                   live-in [5, 6, 7, 8, 9]
+L9:
+   52  w9 s/= 1922224899                                          live-in [5, 6, 7, 8, 9]
+   53  *(u32 *)(r6 +56) = r7                                      live-in [5, 6, 7, 8, 9]
+L10:
+   54  goto L12                                                   live-in [5, 6, 7, 8, 9]
+L11:
+   55  w9 >>= w7                                                  live-in [6, 7, 8, 9]
+   56  r1 = 40                                                    live-in [6, 7, 8, 9]
+   57  r5 = r7                                                    live-in [6, 7, 8, 9]
+   58  r5 &= 7                                                    live-in [5, 6, 7, 8, 9]
+   59  *(u32 *)(r10 -72) = r5                                     live-in [5, 6, 7, 8, 9]
+   60  r1 = map                                                   live-in [6, 7, 8, 9]
+   62  r2 = r10                                                   live-in [1, 6, 7, 8, 9]
+   63  r2 += -72                                                  live-in [1, 2, 6, 7, 8, 9]
+   64  call bpf_map_lookup_elem#1                                 live-in [1, 2, 6, 7, 8, 9]
+   65  if r0 JNE 0 goto L13                                       live-in [0, 6, 7, 8, 9]
+   66  r0 = 1437226410                                            live-in []
+   67  exit                                                       live-in [0]
+L13:
+   68  atomic_fetch_and(*(u32 *)(r0 +4), r7)                      live-in [0, 6, 7, 8, 9]
+   69  r5 = *(u16 *)(r0 +6)                                       live-in [0, 6, 7, 8, 9]
+   70  atomic_xor(*(u32 *)(r0 +4), r9)                            live-in [0, 5, 6, 7, 8, 9]
+L12:
+   71  if w5 JNE r7 goto L14                                      live-in [5, 6, 7, 8, 9]
+   72  r8 s>>= r8                                                 live-in [6, 8]
+   73  r1 = r6                                                    live-in [6]
+   74  r2 = 12                                                    live-in [1]
+   75  r3 = r10                                                   live-in [1, 2]
+   76  r3 += -88                                                  live-in [1, 2, 3]
+   77  r4 = 1                                                     live-in [1, 2, 3]
+   78  call bpf_skb_load_bytes#26                                 live-in [1, 2, 3, 4]
+   79  goto L15                                                   live-in []
+L14:
+   80  *(u16 *)(r10 -48) = 5                                      live-in [5, 6, 7, 8, 9]
+   81  if w8 JGT r9 goto L19                                      live-in [5, 6, 7, 8, 9]
+   82  r7 = *(u32 *)(r6 +56)                                      live-in [5, 6, 8, 9]
+   83  *(u32 *)(r10 -64) = r7                                     live-in [5, 6, 7, 8, 9]
+   84  if w7 JGE 50 goto L16                                      live-in [5, 6, 7, 8, 9]
+   85  *(u32 *)(r10 -20) = r5                                     live-in [5, 9]
+   86  w9 *= w9                                                   live-in [9]
+   87  r5 = 127                                                   live-in []
+   88  gotol L17                                                  live-in []
+L16:
+   89  *(u32 *)(r10 -16) = -386302297                             live-in [5, 6, 8]
+   90  w5 *= 65536                                                live-in [5, 6, 8]
+   91  if r8 JLT -1 goto L18                                      live-in [6, 8]
+   92  r4 = *(u32 *)(r6 +12)                                      live-in [6]
+L18:
+L17:
+   93  gotol L20                                                  live-in []
+L19:
+   94  *(u16 *)(r10 -58) = r7                                     live-in [5, 6, 7]
+   95  r9 = *(u32 *)(r6 +44)                                      live-in [5, 6, 7]
+   96  r5 |= 255                                                  live-in [5, 6, 7, 9]
+   97  if w9 JLE r5 goto L22                                      live-in [5, 6, 7, 9]
+   98  *(u32 *)(r6 +64) = r7                                      live-in [5, 6, 7]
+   99  if r5 JGT 2147483647 goto L21                              live-in [5]
+  100  r1 = 0x6a1e9feab95a7b15 ll                                 live-in []
+L21:
+  102  goto L23                                                   live-in []
+L22:
+  103  r5 = *(u32 *)(r6 +56)                                      live-in [6, 9]
+  104  if w5 JLT r9 goto L24                                      live-in [5, 9]
+  105  *(u16 *)(r10 -30) = 61                                     live-in []
+L24:
+L23:
+L20:
+L15:
+  106  r0 = -861291322                                            live-in []
+  107  exit                                                       live-in [0]

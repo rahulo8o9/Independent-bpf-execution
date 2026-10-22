@@ -1,0 +1,132 @@
+    0  r6 = r1                                                    live-in [1]
+    1  r4 = *(u32 *)(r6 +8)                                       live-in [6]
+    2  r7 = -1                                                    live-in [4, 6]
+    3  w9 = -959733649                                            live-in [4, 6, 7]
+    4  r8 = 763367932                                             live-in [4, 6, 7, 9]
+    5  w2 = 28                                                    live-in [4, 6, 7, 8, 9]
+    6  w1 = 1826187770                                            live-in [2, 4, 6, 7, 8, 9]
+    7  w7 s%= 1292775613                                          live-in [1, 2, 4, 6, 7, 8, 9]
+    8  if w2 JEQ r1 goto L2                                       live-in [1, 2, 4, 6, 7, 8, 9]
+    9  w1 &= 4                                                    live-in [1, 4, 6, 7, 8, 9]
+   10  if w4 JLT r1 goto L1                                       live-in [1, 4, 6, 7, 8, 9]
+   11  r4 s>>= r9                                                 live-in [4, 6, 7, 8, 9]
+   12  r1 = r6                                                    live-in [6, 7, 8, 9]
+   13  r2 = 1                                                     live-in [1, 6, 7, 8, 9]
+   14  r3 = r10                                                   live-in [1, 2, 6, 7, 8, 9]
+   15  r3 += -88                                                  live-in [1, 2, 3, 6, 7, 8, 9]
+   16  r4 = 8                                                     live-in [1, 2, 3, 6, 7, 8, 9]
+   17  call bpf_skb_load_bytes#26                                 live-in [1, 2, 3, 4, 6, 7, 8, 9]
+L1:
+   18  goto L3                                                    live-in [6, 7, 8, 9]
+L2:
+   19  r9 = 0x8d042fae4557dd98 ll                                 live-in [1, 6, 7, 8]
+   21  w2 = 47                                                    live-in [1, 6, 7, 8, 9]
+   22  w2 = (s8)w9                                                live-in [1, 6, 7, 8, 9]
+   23  w1 -= w8                                                   live-in [1, 6, 7, 8, 9]
+L3:
+   24  r7 /= -16                                                  live-in [6, 7, 8, 9]
+   25  w7 s/= -1734276383                                         live-in [6, 7, 8, 9]
+   26  if r8 JEQ -979109834 goto L9                               live-in [6, 7, 8, 9]
+   27  *(u8 *)(r10 -24) = 2134716331                              live-in [6, 7, 8, 9]
+   28  if w7 JGE r9 goto L6                                       live-in [6, 7, 8, 9]
+   29  *(u8 *)(r10 -52) = -1                                      live-in [6, 7, 8, 9]
+   30  if r7 JLT -2127772172 goto L4                              live-in [6, 7, 8, 9]
+   31  w9 += w7                                                   live-in [6, 7, 8, 9]
+   32  r7 = be16 r7                                               live-in [6, 7, 8, 9]
+   33  w9 *= 0                                                    live-in [6, 7, 8, 9]
+   34  gotol L5                                                   live-in [6, 7, 8, 9]
+L4:
+   35  r0 = *(u32 *)(r6 +4)                                       live-in [6, 7, 8]
+   36  *(u32 *)(r10 -52) = r0                                     live-in [0, 6, 7, 8]
+   37  w9 = 0                                                     live-in [6, 7, 8]
+L5:
+   38  goto L7                                                    live-in [6, 7, 8, 9]
+L6:
+   39  r4 = -4                                                    live-in [6, 7]
+   40  r9 = 0                                                     live-in [4, 6, 7]
+L8:
+   41  r4 -= -1111536990                                          live-in [4, 6, 7, 9]
+   42  r8 = -1820120329                                           live-in [6, 7, 9]
+   43  *(u64 *)(r10 -56) = r8                                     live-in [6, 7, 8, 9]
+   44  r4 = *(u8 *)(r10 -51)                                      live-in [6, 7, 8, 9]
+   45  r0 = *(u16 *)(r10 -56)                                     live-in [4, 6, 7, 8, 9]
+   46  r9 += 1                                                    live-in [4, 6, 7, 8, 9]
+   47  if r9 JLT 4 goto L8                                        live-in [4, 6, 7, 8, 9]
+L7:
+   48  gotol L10                                                  live-in [6, 7, 8, 9]
+L9:
+   49  r7 += 2147483647                                           live-in [6, 7, 8, 9]
+   50  *(u16 *)(r10 -62) = r8                                     live-in [6, 7, 8, 9]
+   51  r8 = 0                                                     live-in [6, 7, 9]
+L11:
+   52  r7 <<= r8                                                  live-in [6, 7, 8, 9]
+   53  r9 |= r9                                                   live-in [6, 8, 9]
+   54  r7 = 0x80b0a2e003009152 ll                                 live-in [6, 8, 9]
+   56  r0 = 558394655                                             live-in [6, 7, 8, 9]
+   57  if r0 JNE 255 goto L12                                     live-in [0, 6, 7, 8, 9]
+   58  r1 = 27                                                    live-in [6, 7, 8, 9]
+L12:
+   59  r8 += 1                                                    live-in [6, 7, 8, 9]
+   60  if r8 JLT 2 goto L11                                       live-in [6, 7, 8, 9]
+L10:
+   61  w3 = w8                                                    live-in [6, 7, 8, 9]
+   62  w8 >>= 15                                                  live-in [3, 6, 7, 8, 9]
+   63  if w3 JSGT 23 goto L16                                     live-in [3, 6, 7, 8, 9]
+   64  w7 += w8                                                   live-in [3, 6, 7, 8, 9]
+   65  if w8 JNE 1788106386 goto L15                              live-in [3, 6, 7, 8, 9]
+   66  r9 &= 47                                                   live-in [3, 6, 7, 8, 9]
+   67  if w7 JSLE 45 goto L13                                     live-in [3, 6, 7, 8, 9]
+   68  r8 s%= 59                                                  live-in [6, 7, 8, 9]
+   69  r9 &= r9                                                   live-in [6, 7, 8, 9]
+   70  goto L14                                                   live-in [6, 7, 8]
+L13:
+   71  r9 = (s8)r9                                                live-in [3, 6, 7, 8, 9]
+   72  r3 s/= r8                                                  live-in [3, 6, 7, 8]
+L14:
+L15:
+   73  goto L17                                                   live-in [6, 7, 8]
+L16:
+   74  *(u32 *)(r10 -8) = r3                                      live-in [3, 6, 7, 8]
+   75  *(u32 *)(r10 -72) = 2                                      live-in [6, 7, 8]
+   76  r1 = map                                                   live-in [6, 7, 8]
+   78  r2 = r10                                                   live-in [1, 6, 7, 8]
+   79  r2 += -72                                                  live-in [1, 2, 6, 7, 8]
+   80  call bpf_map_lookup_elem#1                                 live-in [1, 2, 6, 7, 8]
+   81  if r0 JNE 0 goto L18                                       live-in [0, 6, 7, 8]
+   82  r0 = 2079412030                                            live-in []
+   83  exit                                                       live-in [0]
+L18:
+   84  *(u16 *)(r0 +0) = r7                                       live-in [0, 6, 7, 8]
+   85  *(u64 *)(r0 +0) = -818230988                               live-in [0, 6, 7, 8]
+L17:
+   86  r0 = r7                                                    live-in [6, 7, 8]
+   87  r8 |= r8                                                   live-in [0, 6, 7, 8]
+   88  r9 = 0                                                     live-in [0, 6, 7, 8]
+L19:
+   89  r5 = 65535                                                 live-in [0, 6, 7, 8, 9]
+   90  if w9 JNE 18 goto L24                                      live-in [0, 6, 7, 8, 9]
+   91  w0 %= w8                                                   live-in [0, 6, 7, 8, 9]
+   92  *(u32 *)(r6 +60) = r7                                      live-in [0, 6, 7, 8, 9]
+   93  if r7 JGT r7 goto L20                                      live-in [0, 6, 7, 8, 9]
+   94  w8 %= 105657878                                            live-in [0, 6, 7, 8, 9]
+   95  w0 /= 65536                                                live-in [0, 6, 7, 8, 9]
+   96  goto L21                                                   live-in [0, 6, 7, 8, 9]
+L20:
+   97  r1 = -1692623351                                           live-in [0, 6, 7, 8, 9]
+   98  if w9 JLT -8 goto L22                                      live-in [0, 6, 7, 8, 9]
+   99  r7 = *(u32 *)(r6 +16)                                      live-in [0, 6, 8, 9]
+  100  goto L23                                                   live-in [0, 6, 7, 8, 9]
+L22:
+  101  r7 |= 1845058456                                           live-in [0, 6, 7, 8, 9]
+L23:
+L21:
+  102  goto L25                                                   live-in [0, 6, 7, 8, 9]
+L24:
+  103  r4 = 1515745048                                            live-in [0, 6, 8, 9]
+  104  r5 = 1                                                     live-in [0, 4, 6, 8, 9]
+  105  r7 = *(u32 *)(r6 +36)                                      live-in [0, 4, 6, 8, 9]
+  106  *(u32 *)(r6 +60) = r4                                      live-in [0, 4, 6, 7, 8, 9]
+L25:
+  107  r9 += 1                                                    live-in [0, 6, 7, 8, 9]
+  108  if r9 JLT 4 goto L19                                       live-in [0, 6, 7, 8, 9]
+  109  exit                                                       live-in [0]

@@ -1,0 +1,47 @@
+    0  r6 = r1                                                    live-in [1]
+    1  r1 = *(u32 *)(r6 +8)                                       live-in [6]
+    2  r9 = -824047624                                            live-in [1, 6]
+    3  w9 <<= 1                                                   live-in [1, 6, 9]
+    4  *(u64 *)(r10 -56) = r1                                     live-in [1, 6]
+    5  w9 = 1690376882                                            live-in [1, 6]
+    6  if w9 JSGT 1090939186 goto L2                              live-in [1, 6, 9]
+    7  atomic_xor(*(u32 *)(r10 -52), r9)                          live-in [1, 6, 9]
+    8  *(u32 *)(r6 +56) = r9                                      live-in [1, 6, 9]
+    9  w5 = 499702600                                             live-in [1, 9]
+   10  atomic_fetch_xor(*(u64 *)(r10 -56), r9)                    live-in [1, 5, 9]
+   11  if w1 JEQ -3 goto L1                                       live-in [1, 5, 9]
+   12  w9 -= 18                                                   live-in [1, 5, 9]
+   13  r9 += r5                                                   live-in [1, 5, 9]
+L1:
+   14  gotol L3                                                   live-in [1, 9]
+L2:
+   15  r1 = le16 r1                                               live-in [1, 9]
+   16  if w1 JSLT r1 goto L5                                      live-in [1, 9]
+   17  w1 s%= w1                                                  live-in [1, 9]
+   18  w1 ^= 24                                                   live-in [1, 9]
+   19  r7 = 0                                                     live-in [1, 9]
+L4:
+   20  w9 *= 17                                                   live-in [1, 7, 9]
+   21  r7 += 1                                                    live-in [1, 7, 9]
+   22  if r7 JLT 3 goto L4                                        live-in [1, 7, 9]
+   23  goto L6                                                    live-in [1, 9]
+L5:
+   24  r9 += r1                                                   live-in [1, 9]
+   25  w9 = -1087655138                                           live-in [1]
+   26  r9 s%= -16                                                 live-in [1, 9]
+L6:
+L3:
+   27  r1 = -r1                                                   live-in [1, 9]
+   28  r9 ^= r9                                                   live-in [1, 9]
+   29  w1 >>= 6                                                   live-in [1, 9]
+   30  if w9 JEQ 474638275 goto L8                                live-in [1, 9]
+   31  *(u8 *)(r10 -34) = -14                                     live-in [1, 9]
+   32  r7 = 0                                                     live-in [1, 9]
+L7:
+   33  r1 = bswap16 r1                                            live-in [1, 7, 9]
+   34  r9 ^= r7                                                   live-in [1, 7, 9]
+   35  r7 += 1                                                    live-in [1, 7, 9]
+   36  if r7 JLT 3 goto L7                                        live-in [1, 7, 9]
+L8:
+   37  r0 = r1                                                    live-in [1]
+   38  exit                                                       live-in [0]

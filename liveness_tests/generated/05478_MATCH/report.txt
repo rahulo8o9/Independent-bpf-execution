@@ -1,0 +1,4 @@
+status: MATCH
+seed: 5478
+insns: 96
+

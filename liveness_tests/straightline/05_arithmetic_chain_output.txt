@@ -1,0 +1,20 @@
+--- VERIFIER LOG ---
+func#0 @0
+Live regs before insn:
+      0: .......... (b7) r6 = 10
+      1: ......6... (07) r6 += 5
+      2: ......6... (27) r6 *= 2
+      3: ......6... (bf) r0 = r6
+      4: 0......... (95) exit
+0: R1=ctx() R10=fp0
+0: (b7) r6 = 10                       ; R6=10
+1: (07) r6 += 5                       ; R6=15
+2: (27) r6 *= 2                       ; R6=30
+3: (bf) r0 = r6                       ; R0=30 R6=30
+4: (95) exit
+processed 5 insns (limit 1000000) max_states_per_insn 0 total_states 0 peak_states 0 mark_read 0
+
+--- END LOG ---
+--- RUNTIME RESULT ---
+r0 (retval) = 30
+----------------------

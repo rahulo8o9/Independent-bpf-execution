@@ -26,7 +26,8 @@
 #include <linux/if_ether.h>
 #include <linux/ip.h>
 #include <stddef.h>
-#include "bpf/bpf.h"
+#include <bpf/bpf.h>
+#include <bpf/libbpf.h>
 #include "bpf_insn.h"
 #include "sock_example.h"
 
@@ -37,24 +38,27 @@ static int test_sock(void)
 	int sock = -1, map_fd, prog_fd, i, key;
 	long long value = 0, tcp_cnt, udp_cnt, icmp_cnt;
 
-	map_fd = bpf_create_map(BPF_MAP_TYPE_ARRAY, sizeof(key), sizeof(value),
-				256, 0);
+	map_fd = bpf_map_create(BPF_MAP_TYPE_ARRAY, "test_map", sizeof(key), sizeof(value),
+				256, NULL);
 	if (map_fd < 0) {
 		printf("failed to create map '%s'\n", strerror(errno));
 		goto cleanup;
 	}
-
 	struct bpf_insn prog[] = {
 		#include "Input.txt"
 	};
-
 	size_t insns_cnt = sizeof(prog) / sizeof(struct bpf_insn);
 
-	prog_fd = bpf_load_program(BPF_PROG_TYPE_SOCKET_FILTER, prog, insns_cnt,
-				   "GPL", 0, bpf_log_buf, BPF_LOG_BUF_SIZE);
+	LIBBPF_OPTS(bpf_prog_load_opts, load_opts,
+		.log_buf = bpf_log_buf,
+		.log_size = BPF_LOG_BUF_SIZE,
+		.log_level = 2,
+	);
+	prog_fd = bpf_prog_load(BPF_PROG_TYPE_SOCKET_FILTER, "test_prog", "GPL",
+				 prog, insns_cnt, &load_opts);
+	printf("--- VERIFIER LOG ---\n%s\n--- END LOG ---\n", bpf_log_buf);
 	if (prog_fd < 0) {
 		printf("failed to load prog '%s'\n", strerror(errno));
-		//printf("%s \n", bpf_log_buf);
 		goto cleanup;
 	}
 
@@ -85,6 +89,45 @@ cleanup:
 	/* maps, programs, raw sockets will auto cleanup on process exit */
 	return 0;
 }
+static int run_test_program(void)
+{
+	int prog_fd;
+	char dummy_data[64] = {0};
+
+	struct bpf_insn prog[] = {
+		#include "Input.txt"
+	};
+	size_t insns_cnt = sizeof(prog) / sizeof(struct bpf_insn);
+
+	LIBBPF_OPTS(bpf_prog_load_opts, load_opts,
+		.log_buf = bpf_log_buf,
+		.log_size = BPF_LOG_BUF_SIZE,
+		.log_level = 2,
+	);
+	prog_fd = bpf_prog_load(BPF_PROG_TYPE_SOCKET_FILTER, "test_prog", "GPL",
+				 prog, insns_cnt, &load_opts);
+	printf("--- VERIFIER LOG ---\n%s\n--- END LOG ---\n", bpf_log_buf);
+	if (prog_fd < 0) {
+		printf("failed to load prog '%s'\n", strerror(errno));
+		return -1;
+	}
+
+	LIBBPF_OPTS(bpf_test_run_opts, test_opts,
+		.data_in = dummy_data,
+		.data_size_in = sizeof(dummy_data),
+		.repeat = 1,
+	);
+	int ret = bpf_prog_test_run_opts(prog_fd, &test_opts);
+	if (ret < 0) {
+		printf("test_run failed '%s'\n", strerror(errno));
+		return -1;
+	}
+
+	printf("--- RUNTIME RESULT ---\n");
+	printf("r0 (retval) = %u\n", test_opts.retval);
+	printf("----------------------\n");
+	return 0;
+}
 
 int main(void)
 {
@@ -92,6 +135,7 @@ int main(void)
 
 	f = popen("ping -4 -c5 localhost", "r");
 	(void)f;
+	return run_test_program();
 
-	return test_sock();
+	//return test_sock();
 }
